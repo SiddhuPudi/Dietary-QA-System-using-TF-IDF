@@ -12,6 +12,6 @@
   "dependencies": {
     "fs-extra": "^11.3.3",
     "natural": "^8.1.0",
-    "pdf-parse": "^2.4.5"
+    "pdf-parse": "^1.1.1"
   }
 }

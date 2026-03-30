@@ -3,3 +3,4 @@ data/raw/*.pdf
 data/extracted/*.txt
 .env
 .DS_Store
+*.json

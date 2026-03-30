@@ -1,30 +1,44 @@
 const fs = require("fs");
 const path = require("path");
-const pdfParse = require("pdf-parse");
+const pdf = require("pdf-parse");
 
-async function extractPDF(inputPath, outputPath) {
-    try {
-        const dataBuffer = fs.readFileSync(inputPath);
-        const data = await pdfParse(dataBuffer);
-        fs.writeFileSync(outputPath, data.text, "utf-8");
-        console.log(`✅ Extracted text saved to ${outputPath}`);
-    } catch (error) {
-        console.error("❌ Error extracting text from PDF:", error.message);
-    }
+function cleanText(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s.,]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
-const books = [
-    { pdf: "book1.pdf", txt: "book1.txt" },
-    { pdf: "book2.pdf", txt: "book2.txt" }
-]
-
-async function extractAll() {
-    for (const book of books) {
-        await extractPDF(
-            path.join("data", "raw", book.pdf),
-            path.join("data", "extracted", book.txt)
-        );
-    }
+async function processPDF(fileName) {
+  const inputPath = path.join("data", "raw", fileName);
+  const baseName = path.parse(fileName).name;
+  const outputRaw = path.join("data", "extracted", `${baseName}.txt`);
+  const outputClean = path.join("data", "extracted", `${baseName}_clean.txt`);
+  if (fs.existsSync(outputClean)) {
+    console.log(`⏭️ Skipping (already processed): ${fileName}`);
+    return;
+  }
+  try {
+    console.log(`📄 Processing: ${fileName}`);
+    const buffer = fs.readFileSync(inputPath);
+    const data = await pdf(buffer);
+    fs.writeFileSync(outputRaw, data.text, "utf-8");
+    const cleaned = cleanText(data.text);
+    fs.writeFileSync(outputClean, cleaned, "utf-8");
+  } catch (err) {
+    console.error(`❌ Error with ${fileName}:`, err.message);
+  }
 }
 
-extractAll();
+async function processAll() {
+  const files = fs.readdirSync("data/raw");
+  const pdfFiles = files.filter(f => f.endsWith(".pdf"));
+  console.log(`Found ${pdfFiles.length} PDF files\n`);
+  for (const file of pdfFiles) {
+    await processPDF(file);
+  }
+  console.log(`\n✅ Done: ${pdfFiles.length} books processed`);
+}
+
+processAll();

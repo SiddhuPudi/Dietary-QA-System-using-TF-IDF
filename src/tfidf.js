@@ -1,34 +1,50 @@
-const fs = require("fs");
-const path = require("path");
-const natural = require("natural");
-const chunks = JSON.parse(
-  fs.readFileSync(path.join("data", "processed", "chunks.json"), "utf-8")
-);
-const TfIdf = natural.TfIdf;
-const tfidf = new TfIdf();
-chunks.forEach(chunk => {
-  tfidf.addDocument(chunk.text);
-});
-console.log(`✅ TF-IDF index created with ${chunks.length} chunks`);
+const {
+  loadChunks,
+  buildTfIdfIndex,
+  searchIndex,
+  formatScore,
+} = require("./utils");
 
-function testQuery(query) {
-  console.log(`\n🔍 Query: "${query}"\n`);
-  let results = [];
-  tfidf.tfidfs(query, (i, score) => {
-    results.push({
-      index: i,
-      score: score,
-      text: chunks[i].text
-    });
-  });
-  results.sort((a, b) => b.score - a.score);
-  results.slice(0, 3).forEach((res, i) => {
-    console.log(`Result ${i + 1} (Score: ${res.score.toFixed(4)})`);
-    console.log(res.text.substring(0, 200), "...\n");
-  });
+const chunks = loadChunks();
+const tfidf = buildTfIdfIndex(chunks);
+console.log(`✅ TF-IDF index built: ${chunks.length} chunks indexed`);
+
+/**
+ * Search the index for a query.
+ * @param {string} query - natural language query
+ * @param {number} [topN=3] - number of results to return
+ * @returns {Array<{index, score, text, source, id}>}
+ */
+function search(query, topN = 3) {
+  return searchIndex(tfidf, chunks, query, topN);
 }
 
-testQuery("protein diet benefits");
-testQuery("fiber rich foods");
-testQuery("balanced diet");
-testQuery("vitamin deficiency");
+module.exports = { tfidf, chunks, search };
+
+if (require.main === module) {
+  console.log("\n╔══════════════════════════════════════════╗");
+  console.log("║   Step 4: TF-IDF Index & Test Queries    ║");
+  console.log("╚══════════════════════════════════════════╝\n");
+
+  const testQueries = [
+    "protein diet benefits",
+    "fiber rich foods",
+    "balanced diet",
+    "vitamin deficiency",
+    "weight loss tips",
+  ];
+
+  testQueries.forEach((query) => {
+    console.log(`🔍 Query: "${query}"\n`);
+    const results = search(query, 3);
+    if (results.length === 0) {
+      console.log("   No results found.\n");
+      return;
+    }
+    results.forEach((res, i) => {
+      console.log(`   Result ${i + 1} (Score: ${formatScore(res.score)}) [${res.source}]`);
+      console.log(`   ${res.text.substring(0, 150)}...\n`);
+    });
+    console.log("────────────────────────────────────────────\n");
+  });
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What is a balanced diet?",
+    "expected_keyword": "balanced"
+  },
+  {
+    "question": "What are the benefits of protein?",
+    "expected_keyword": "protein"
+  },
+  {
+    "question": "Why is fiber important in a diet?",
+    "expected_keyword": "fiber"
+  },
+  {
+    "question": "What are vitamins and why are they important?",
+    "expected_keyword": "vitamin"
+  },
+  {
+    "question": "What is calorie intake?",
+    "expected_keyword": "calorie"
+  },
+  {
+    "question": "What foods are rich in iron?",
+    "expected_keyword": "iron"
+  },
+  {
+    "question": "What are the benefits of whole grains?",
+    "expected_keyword": "grain"
+  },
+  {
+    "question": "How does sugar affect health?",
+    "expected_keyword": "sugar"
+  },
+  {
+    "question": "What are healthy fats?",
+    "expected_keyword": "fat"
+  },
+  {
+    "question": "What is the role of calcium in the body?",
+    "expected_keyword": "calcium"
+  },
+  {
+    "question": "What are carbohydrates and their function?",
+    "expected_keyword": "carbohydrate"
+  },
+  {
+    "question": "How much water should one drink daily?",
+    "expected_keyword": "water"
+  },
+  {
+    "question": "What foods help with weight loss?",
+    "expected_keyword": "weight"
+  },
+  {
+    "question": "What is a vegetarian diet?",
+    "expected_keyword": "vegetarian"
+  },
+  {
+    "question": "What are the benefits of fruits and vegetables?",
+    "expected_keyword": "fruit"
+  }
+]

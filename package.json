@@ -1,14 +1,21 @@
 {
   "name": "diet-llm-mini-project",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/qa.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "extract": "node src/extractText.js",
+    "preprocess": "node src/preprocess.js",
+    "chunk": "node src/chunkText.js",
+    "index": "node src/tfidf.js",
+    "qa": "node src/qa.js",
+    "evaluate": "node src/evaluate.js",
+    "pipeline": "npm run extract && npm run preprocess && npm run chunk",
+    "test": "node src/evaluate.js"
   },
-  "keywords": [],
+  "keywords": ["nlp", "tfidf", "dietary", "question-answering"],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "A document-grounded dietary QA system using TF-IDF retrieval",
   "dependencies": {
     "fs-extra": "^11.3.3",
     "natural": "^8.1.0",

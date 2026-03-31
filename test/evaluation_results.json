@@ -1,0 +1,163 @@
+{
+  "timestamp": "2026-03-31T19:39:14.511Z",
+  "total_questions": 15,
+  "correct": 13,
+  "accuracy_percent": 86.67,
+  "avg_score": 29.4334,
+  "min_score": 11.1014,
+  "max_score": 78.9353,
+  "threshold": 1,
+  "elapsed_seconds": 0.05,
+  "results": [
+    {
+      "question": "What is a balanced diet?",
+      "expected_keyword": "balanced",
+      "is_correct": true,
+      "score": 20.992353655680184,
+      "source": "Recipes Book",
+      "chunk_id": "Recipes Book_chunk_26",
+      "answer_preview": "a balanced diet is essential from the very early stages of life for proper growth, development and to remain active. vegetables are the most important component of a balanced diet. they are referred t",
+      "below_threshold": false
+    },
+    {
+      "question": "What are the benefits of protein?",
+      "expected_keyword": "protein",
+      "is_correct": true,
+      "score": 57.05194613182047,
+      "source": "Recipe-Book",
+      "chunk_id": "Recipe-Book_chunk_258",
+      "answer_preview": "ingredients ragi: 30g sugar jaggery: 20g oil: 3g ragi: 45g sugar jaggery: 10g oil: 5g primary school children secondary school children 224 12.1 gm protein 5 gm fat energy 459 kcal 16.6 gm protein 7.4",
+      "below_threshold": false
+    },
+    {
+      "question": "Why is fiber important in a diet?",
+      "expected_keyword": "fiber",
+      "is_correct": true,
+      "score": 25.96362015327531,
+      "source": "book2",
+      "chunk_id": "book2_chunk_324",
+      "answer_preview": "and the fatty acids go into my blood after getting repackaged together with cholesterol. right. and . . . oh, right, hold on, you never told me what happens to fiber. right, that s why i brought it up",
+      "below_threshold": false
+    },
+    {
+      "question": "What are vitamins and why are they important?",
+      "expected_keyword": "vitamin",
+      "is_correct": true,
+      "score": 15.74288719848453,
+      "source": "book2",
+      "chunk_id": "book2_chunk_352",
+      "answer_preview": "what else do my gut bacteria do they help breakdown pretty much everything you eat; not just fiber and starch but fat and protein as well. and they make a lot of things that your body needs, like vita",
+      "below_threshold": false
+    },
+    {
+      "question": "What is calorie intake?",
+      "expected_keyword": "calorie",
+      "is_correct": true,
+      "score": 16.458120268819524,
+      "source": "Recipes Book",
+      "chunk_id": "Recipes Book_chunk_18",
+      "answer_preview": "about 15.2 of the population is undernourished in india, 15 of children under five years are the prevalence of wasting (underweight as per height) and 38.8 of children under five years is the prevalen",
+      "below_threshold": false
+    },
+    {
+      "question": "What foods are rich in iron?",
+      "expected_keyword": "iron",
+      "is_correct": true,
+      "score": 27.20312367515464,
+      "source": "Recipe-Book",
+      "chunk_id": "Recipe-Book_chunk_330",
+      "answer_preview": "31 - 100 gm shelf life 3 months iron rich chikki 59 gm carbohydrate 7.20 gm protein 12.20 mg iron nutritional information 100 grams 305 iron rich chikki target group and benefits ingredients all age g",
+      "below_threshold": false
+    },
+    {
+      "question": "What are the benefits of whole grains?",
+      "expected_keyword": "grain",
+      "is_correct": true,
+      "score": 51.780860685053746,
+      "source": "book1",
+      "chunk_id": "book1_chunk_83",
+      "answer_preview": "grains and breads m a n n a h e a l t h p r o d u c t s d i e t e-b o o k page 19 best choices worst choices whole-grain flours, such as whole wheat flour white flour whole grains, such as brown rice ",
+      "below_threshold": false
+    },
+    {
+      "question": "How does sugar affect health?",
+      "expected_keyword": "sugar",
+      "is_correct": true,
+      "score": 26.121502233124428,
+      "source": "Recipe-Book",
+      "chunk_id": "Recipe-Book_chunk_258",
+      "answer_preview": "ingredients ragi: 30g sugar jaggery: 20g oil: 3g ragi: 45g sugar jaggery: 10g oil: 5g primary school children secondary school children 224 12.1 gm protein 5 gm fat energy 459 kcal 16.6 gm protein 7.4",
+      "below_threshold": false
+    },
+    {
+      "question": "What are healthy fats?",
+      "expected_keyword": "fat",
+      "is_correct": true,
+      "score": 27.466985434160677,
+      "source": "book1",
+      "chunk_id": "book1_chunk_50",
+      "answer_preview": "there are four major types of fats: monounsaturated fats and polyunsaturated fats are known as the good fats because they are good for your heart, your cholesterol, and your overall health. saturated ",
+      "below_threshold": false
+    },
+    {
+      "question": "What is the role of calcium in the body?",
+      "expected_keyword": "calcium",
+      "is_correct": true,
+      "score": 14.751563289118728,
+      "source": "Recipe-Book",
+      "chunk_id": "Recipe-Book_chunk_403",
+      "answer_preview": "(with bengal gram flour) image not provided 3 74 375 recipe book central india recipes 376 sattu shelf life 2 months cost na energy 364 - 381 kcal 310.2 - 394.2 mg phosphorous 15.5 - 131.5 mg calcium ",
+      "below_threshold": false
+    },
+    {
+      "question": "What are carbohydrates and their function?",
+      "expected_keyword": "carbohydrate",
+      "is_correct": true,
+      "score": 11.101393935893334,
+      "source": "book1",
+      "chunk_id": "book1_chunk_23",
+      "answer_preview": "blood sugar the body s fuel is called blood sugar or blood glucose, and it comes from the food we eat. the energy is needed to fuel our brain, nervous system, and tissues. a healthy body makes glucose",
+      "below_threshold": false
+    },
+    {
+      "question": "How much water should one drink daily?",
+      "expected_keyword": "water",
+      "is_correct": false,
+      "score": 23.684017211977597,
+      "source": "book2",
+      "chunk_id": "book2_chunk_676",
+      "answer_preview": "so that s why i ll end up drunk if i drink quickly but not if i drink slowly right. ok. but does an alcoholic drink have a lot of calories that depends on how much alcohol is in it. a weak drink like ",
+      "below_threshold": false
+    },
+    {
+      "question": "What foods help with weight loss?",
+      "expected_keyword": "weight",
+      "is_correct": true,
+      "score": 28.9209461109027,
+      "source": "book1",
+      "chunk_id": "book1_chunk_0",
+      "answer_preview": "m a n n a h e a l t h p r o d u c t s d i e t e-b o o k page 2 content weight loss what causes weight gain a medical condition lacking essential fats food allergies quitting smoking emotional reasons ",
+      "below_threshold": false
+    },
+    {
+      "question": "What is a vegetarian diet?",
+      "expected_keyword": "vegetarian",
+      "is_correct": false,
+      "score": 15.325926967567753,
+      "source": "book2",
+      "chunk_id": "book2_chunk_763",
+      "answer_preview": "but that s not what happens, right most people who fail to stick to a perfect diet end up all the way back at an unhealthy diet that is mostly processed foods. ok, sure, a perfect diet probably isn t ",
+      "below_threshold": false
+    },
+    {
+      "question": "What are the benefits of fruits and vegetables?",
+      "expected_keyword": "fruit",
+      "is_correct": true,
+      "score": 78.93528125855318,
+      "source": "Recipes Book",
+      "chunk_id": "Recipes Book_chunk_192",
+      "answer_preview": "glossary of terms used in food preparation 152 153 154 nutrients food groupsfoods nutrient content for 100g edible portion protein leafy vegetablescelery, amaranth bathua leaves, spinach, rape leaves2",
+      "below_threshold": false
+    }
+  ]
+}

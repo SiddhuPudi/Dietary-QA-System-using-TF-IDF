@@ -1,6 +1,4 @@
 node_modules/
-data/raw/*.pdf
-data/extracted/*.txt
 .env
 .DS_Store
-*.json
+data/*

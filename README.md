@@ -1,15 +1,29 @@
-# Developing a Small LLM for Dietary Recommendations
+# Document Grounded Dietary QA System using TF-IDF
 
-A document-grounded dietary question answering system using classical NLP techniques (TF-IDF retrieval). The system processes diet-related PDF books and answers user questions by retrieving the most relevant passages.
+A document-grounded dietary question answering system using classical NLP techniques (TF-IDF retrieval).
+The system processes diet-related PDF books and answers user questions by retrieving the most relevant passages.
 
-## Architecture
+> ⚠️ Note: This is NOT a neural LLM. It is a small, explainable, retrieval-based system designed for academic purposes.
+
+---
+
+## 📌 Project Objective
+
+To design and implement a **small-scale, explainable NLP system** that:
+- Answers dietary questions using **only provided documents**
+- Avoids hallucination by **strict document grounding**
+- Uses **classical techniques (TF-IDF)** instead of deep learning
+
+---
+
+## 🧠 Architecture
 
 ```
 PDF Documents (data/raw/)
         │
         ▼
 ┌─────────────────┐
-│  Text Extraction│  extractText.js — pdf-parse
+│ Text Extraction │  extractText.js — pdf-parse
 └────────┬────────┘
          ▼
 ┌─────────────────┐
@@ -17,11 +31,11 @@ PDF Documents (data/raw/)
 └────────┬────────┘
          ▼
 ┌─────────────────┐
-│  Chunking       │  chunkText.js — paragraph-level splitting
+│    Chunking     │  chunkText.js — paragraph-level splitting
 └────────┬────────┘
          ▼
 ┌─────────────────┐
-│  TF-IDF Index   │  tfidf.js — natural library
+│   TF-IDF Index  │  tfidf.js — natural library
 └────────┬────────┘
          ▼
 ┌─────────────────┐
@@ -29,29 +43,45 @@ PDF Documents (data/raw/)
 └─────────────────┘
 ```
 
-## Tech Stack
+---
 
-- **Runtime**: Node.js
-- **NLP**: TF-IDF vectorization via [natural]
-- **PDF Parsing**: [pdf-parse]
+## ⚙️ Tech Stack
+
+- **Runtime**: Node.js  
+- **NLP Technique**: TF-IDF (Term Frequency–Inverse Document Frequency)  
+- **Library**: `natural`  
+- **PDF Parsing**: `pdf-parse` (v1.1.1 for stability)  
 - **Storage**: JSON-based document chunks
 
-## Setup
+---
+
+## 🗄️ Dataset
+
+- ~45 diet and nutrition-related books (PDF format)
+```
+The books can be accessed at: https://drive.google.com/drive/folders/1oO7vnhs-HDNpeb8qGnN9nX8kxY6HoCBA?usp=drive_link
+```
+- Store in: `data/raw/` 
+- System operates strictly on this dataset (no external knowledge)
+
+---
+
+## 🚀 Setup
 
 ```bash
 # Install dependencies
 npm install
 
-# Place PDF diet books in:
+# Place PDF diet books in data/raw/:
 data/raw/
 ```
 
-## Usage
+## ▶️ Usage
 
 ### Run the Full Pipeline
 
 ```bash
-# Extract → Preprocess → Chunk (all three steps)
+# Extract → Preprocess → Chunk
 npm run pipeline
 ```
 
@@ -64,12 +94,17 @@ npm run chunk
 npm run index
 ```
 
-### Interactive QA
+### Interactive Question Answering
 
 ```bash
 npm run qa
 ```
-Type your dietary question and get answers with source tracing. Type `debug` to see top-3 results, or `exit` to quit.
+Features:
+- Enter dietary questions
+- Returns best matching answer
+- Displays source document and score
+- Type debug to see top-3 results
+- Type exit to quit
 
 ### Evaluation
 
@@ -80,7 +115,9 @@ npm test
 ```
 Runs 15 test questions and reports accuracy, scores, and saves results to `test/evaluation_results.json`.
 
-## Project Structure
+---
+
+## 📂 Project Structure
 
 ```
 diet-LLM-mini-project/
@@ -102,12 +139,87 @@ diet-LLM-mini-project/
 └── README.md
 ```
 
-## How It Works
+---
 
-1. **PDF Extraction**: Reads PDF files using `pdf-parse` and saves raw text
-2. **Preprocessing**: Lowercases text, removes noise while preserving dietary terms (e.g., `omega-3`, `vitamin-rich`)
-3. **Chunking**: Splits text into ~500 character paragraph-level chunks suitable for retrieval
-4. **TF-IDF Indexing**: Builds a term frequency–inverse document frequency index across all chunks
-5. **Query Processing**: User queries are cleaned and matched against the index
-6. **Answer Retrieval**: Returns the highest-scoring chunk if it exceeds the similarity threshold; otherwise returns "information not available"
-7. **Traceability**: Each answer includes the source document name and chunk ID
+## ⚙️ How the System Works
+
+1. **Text Extraction**
+   - Reads PDF documents using `pdf-parse`
+   - Converts them into raw text
+
+2. **Preprocessing**
+   - Converts text to lowercase
+   - Removes unwanted characters
+   - Normalizes whitespace
+
+3. **Chunking**
+   - Splits text into paragraph-level chunks
+   - Each chunk has:
+     - Unique ID
+     - Source reference
+
+4. **TF-IDF Indexing**
+   - Converts text into numerical representation
+   - Captures importance of words across documents
+
+5. **Query Processing**
+   - User query is cleaned using same preprocessing
+   - Converted into comparable form
+
+6. **Similarity Matching**
+   - Cosine similarity used to compare query with chunks
+   - Top-scoring chunk selected
+
+7. **Answer Retrieval**
+   - If similarity ≥ threshold → return answer
+   - Else → "Information not available in provided documents"
+
+8. **Traceability**
+   - Each answer includes:
+     - Source document
+     - Confidence score
+
+---
+
+## 📊 Evaluation Methodology
+
+- **Test set**: 15 manually created dietary questions
+- **Ground truth**: Derived from the same documents
+- **Metrics**:
+  - Accuracy: Percentage of correctly retrieved answers
+  - Precision: Relevance of retrieved answers (manually evaluated)
+  - Coverage: Percentage of questions answerable from the dataset
+
+---
+
+## ⚠️ Limitations
+
+- Cannot answer questions outside the provided documents
+- No semantic understanding beyond keyword matching
+- Performance depends on document quality and chunking
+- TF-IDF does not capture deep semantic meaning, which may affect performance for complex queries
+
+---
+
+## ✅ Key Features
+
+- Fully explainable pipeline
+- No hallucination (document-grounded)
+- Scalable to 100+ documents (Provided ~45 documents currently)
+- Lightweight and efficient
+- Guarantees that all answers are derived strictly from the provided documents
+
+---
+
+## 📌 Conclusion
+
+This project demonstrates how a small, explainable NLP system can perform question answering using classical techniques without relying on large-scale neural models.
+
+--- 
+
+## 🧑🏻‍💻 Team Members
+
+- **P. Thrivikram**
+- **A. Guru Sai Harsha**
+- **S. Abdul Sami**
+- **U. Karthikeya**

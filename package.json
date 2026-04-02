@@ -12,11 +12,17 @@
     "pipeline": "npm run extract && npm run preprocess && npm run chunk",
     "test": "node src/evaluate.js"
   },
-  "keywords": ["nlp", "tfidf", "dietary", "question-answering"],
+  "keywords": [
+    "nlp",
+    "tfidf",
+    "dietary",
+    "question-answering"
+  ],
   "author": "",
   "license": "ISC",
   "description": "A document-grounded dietary QA system using TF-IDF retrieval",
   "dependencies": {
+    "express": "^5.2.1",
     "fs-extra": "^11.3.3",
     "natural": "^8.1.0",
     "pdf-parse": "^1.1.1"

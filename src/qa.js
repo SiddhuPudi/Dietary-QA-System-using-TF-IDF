@@ -99,3 +99,5 @@ function askQuestion() {
 
 printBanner();
 askQuestion();
+
+module.exports = { getAnswer };

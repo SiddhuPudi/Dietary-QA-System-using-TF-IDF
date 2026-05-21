@@ -219,7 +219,7 @@ This project demonstrates how a small, explainable NLP system can perform questi
 
 ## 🧑🏻‍💻 Team Members
 
-- **P. Thrivikram**
-- **A. Guru Sai Harsha**
-- **S. Abdul Sami**
-- **U. Karthikeya**
+- **B. Sai Gokul**
+- **B. Gunavardhan Royal**
+- **C. Panay**
+- **C. Manoj Kumar Yadav**

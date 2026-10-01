@@ -217,6 +217,12 @@ This project demonstrates how a small, explainable NLP system can perform questi
 
 --- 
 
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
 ## 🧑🏻‍💻 Team Members
 
 - **P. Thrivikram**
